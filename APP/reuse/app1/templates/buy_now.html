@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="buy-now-page">
+    <h2>{{ item_name }}</h2>
+    <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item_name }}">
+    <h3>Price Details</h3>
+    <p>Price: ${{ item.price }}</p>
+    <div class="quantity">
+        <label for="quantity">Quantity:</label>
+        <button onclick="decreaseQuantity()">-</button>
+        <input type="number" id="quantity" name="quantity" value="1" min="1">
+        <button onclick="increaseQuantity()">+</button>
+    </div>
+</div>
+
+<script>
+function increaseQuantity() {
+    var quantityInput = document.getElementById('quantity');
+    quantityInput.value = parseInt(quantityInput.value) + 1;
+}
+
+function decreaseQuantity() {
+    var quantityInput = document.getElementById('quantity');
+    if (quantityInput.value > 1) {
+        quantityInput.value = parseInt(quantityInput.value) - 1;
+    }
+}
+</script>
+{% endblock %}

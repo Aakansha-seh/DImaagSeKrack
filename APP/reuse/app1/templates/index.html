@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=`{ url_for('static', filename='css/styles.css') }`>
+    <title>पुन: उपयोग - Welcome</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to पुन: उपयोग</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('welcome') }}">Home</a></li>
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('signup') }}">Signup</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="welcome-section">
+            <h1>Welcome to पुन: उपयोग</h1>
+            <p>Your one-stop solution for online shopping!</p>
+           <button onclick="window.location.href=`{{ url_for('login') }}`">Login</button>
+            <button onclick="window.location.href=`{{ url_for('signup') }}`">Signup</button>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2023 पुन: उपयोग. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

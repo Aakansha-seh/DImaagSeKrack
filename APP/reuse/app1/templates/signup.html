@@ -1,0 +1,38 @@
+.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-section">
+    <h2>Signup</h2>
+    <form action="{{ url_for('signup') }}" method="post">
+        <label for="new_username">Username:</label>
+        <input type="text" id="new_username" name="username" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="new_password">Password:</label>
+        <div class="password-container">
+            <input type="password" id="new_password" name="password" required>
+            <span class="toggle-password" onclick="togglePasswordVisibility()">
+                <i class="fa fa-eye" id="togglePasswordIcon"></i>
+            </span>
+        </div>
+        <button type="submit">Signup</button>
+    </form>
+</div>
+
+<script>
+function togglePasswordVisibility() {
+    var passwordField = document.getElementById("new_password");
+    var toggleIcon = document.getElementById("togglePasswordIcon");
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        toggleIcon.classList.remove("fa-eye");
+        toggleIcon.classList.add("fa-eye-slash");
+    } else {
+        passwordField.type = "password";
+        toggleIcon.classList.remove("fa-eye-slash");
+        toggleIcon.classList.add("fa-eye");
+    }
+}
+</script>
+{% endblock %}
